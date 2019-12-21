@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:memo/ListViewTest.dart';
+import 'package:memo/CustomScrollViewTest.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,15 +40,17 @@ class _MyHomePageState extends State<MyHomePage>{
           )
       ),
       body:
-        Column(
-          children: <Widget>[
-            NormalText(),
-            FadeInImageTest(),
-            FloatingActionButton(onPressed: ()=>print('floating action button pressed'),),
-            FlatButton(onPressed: ()=>print('flat button pressed'),),
-            RaisedButton(onPressed: ()=>print('raised button pressed'),)
-          ],
-        )
+//        Column(
+//          children: <Widget>[
+//            NormalText(),
+//            FadeInImageTest(),
+//            FloatingActionButton(onPressed: ()=>print('floating action button pressed'),),
+//            FlatButton(onPressed: ()=>print('flat button pressed'),),
+//            RaisedButton(onPressed: ()=>print('raised button pressed'),)
+//          ],
+//        )
+//        ListViewTest()
+          CustomScrollViewTest()
     );
   }
 }
