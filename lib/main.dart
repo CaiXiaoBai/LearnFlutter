@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/widget/ButtonDemoPage.dart';
 import 'widget/TextDemoPage.dart';
 
 void main() => runApp(MyApp());
@@ -62,11 +63,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 const routerName = [
-  "Text 例子"
+  "Text 例子",
+  "Button 例子"
 ];
 
 Map<String, WidgetBuilder> routers = {
   "widget/text" : (context){
     return new TextDemoPage();
+  },
+  "widget/button" : (context){
+    return new ButtonDemoPage();
   }
 };
