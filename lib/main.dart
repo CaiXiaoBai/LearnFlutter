@@ -5,6 +5,7 @@ import 'widget/ImageDemoPage.dart';
 import 'widget/SwitchAndCheckBoxDemoPage.dart';
 import 'widget/TextFieldAndFormDemoPage.dart';
 import 'widget/ProgressDemoPage.dart';
+import 'widget/MyDrawer.dart';
 
 
 void main() => runApp(MyApp());
@@ -33,7 +34,17 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin  {
+  int selectedIndex = 1;
+  TabController tabController;
+  List tabs = ["新闻","历史","图片"];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    tabController = TabController(length: tabs.length, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,28 +52,61 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        bottom: TabBar(
+          controller: tabController,
+          tabs: tabs.map((e) => Tab(text: e,)).toList(),
+        ),
       ),
-      body: Center(
-        child: new ListView.builder(
-          itemBuilder: (context, index) {
-            return new InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(routeLists[index]);
-              },
-              child: new Card(
-                child: new Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  height: 50,
-                  child: new Text(routerName[index]),
-                ),
+      drawer: new MyDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text("School")),
+          BottomNavigationBarItem(icon: Icon(Icons.build), title: Text("Build")),
+          BottomNavigationBarItem(icon: Icon(Icons.person_outline), title: Text("Person")),
+        ],
+        currentIndex: selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
+      body: TabBarView(
+        controller: tabController,
+        children: tabs.map((e){
+          if(e == "新闻"){
+            return Center(
+              child: new ListView.builder(
+                itemBuilder: (context, index) {
+                  return new InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(routeLists[index]);
+                    },
+                    child: new Card(
+                      child: new Container(
+                        alignment: Alignment.centerLeft,
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        height: 50,
+                        child: new Text(routerName[index]),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: routers.length,
               ),
             );
-          },
-          itemCount: routers.length,
-        ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+          }else{
+            return Container(
+              alignment: Alignment.center,
+              child: Text(e, textScaleFactor: 5),
+            );
+          }
+        }).toList(),
+      ),
     );
+  }
+
+  void _onItemTapped(int index){
+    setState(() {
+      selectedIndex = index;
+    });
   }
 }
 
