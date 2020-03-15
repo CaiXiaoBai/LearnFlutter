@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/widget/ButtonDemoPage.dart';
 import 'widget/TextDemoPage.dart';
+import 'widget/ImageDemoPage.dart';
+import 'widget/SwitchAndCheckBoxDemoPage.dart';
+import 'widget/TextFieldAndFormDemoPage.dart';
+import 'widget/ProgressDemoPage.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -63,8 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 const routerName = [
-  "Text 例子",
-  "Button 例子"
+  "Text Demo",
+  "Button Demo",
+  "Image Demo",
+  "Switch and CheckBox Demo",
+  "TextField and Form Demo",
+  "Progress Demo"
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -73,5 +82,17 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/button" : (context){
     return new ButtonDemoPage();
+  },
+  "widget/image" : (context){
+    return new ImageDemoPage();
+  },
+  "widget/switchandcheckbox" : (context){
+    return new SwitchAndCheckBoxDemoPage();
+  },
+  "widget/textfieldandform" : (context){
+    return new TextFieldAndFormDemoPage();
+  },
+  "widget/progress" : (context){
+    return new ProgressDemoPage();
   }
 };
