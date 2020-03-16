@@ -6,6 +6,9 @@ import 'widget/SwitchAndCheckBoxDemoPage.dart';
 import 'widget/TextFieldAndFormDemoPage.dart';
 import 'widget/ProgressDemoPage.dart';
 import 'widget/MyDrawer.dart';
+import 'widget/SingleChildScrollViewDemoPage.dart';
+import 'widget/ListViewDemoPage1.dart';
+import 'widget/ListViewDemoPage2.dart';
 
 
 void main() => runApp(MyApp());
@@ -117,7 +120,10 @@ const routerName = [
   "Image Demo",
   "Switch and CheckBox Demo",
   "TextField and Form Demo",
-  "Progress Demo"
+  "Progress Demo",
+  "SingleChildScrollView Demo",
+  "ListViewDemoPage1 Demo",
+  "ListViewDemoPage2 Demo",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -138,5 +144,14 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/progress" : (context){
     return new ProgressDemoPage();
-  }
+  },
+  "widget/SingleChildScrollView" : (context){
+    return new SingleChildScrollViewDemoPage();
+  },
+  "widget/ListViewDemoPage1" : (context){
+    return new ListViewDemoPage1();
+  },
+  "widget/ListViewDemoPage2" : (context){
+    return new ListViewDemoPage2();
+  },
 };
