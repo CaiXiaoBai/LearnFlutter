@@ -9,6 +9,8 @@ import 'widget/MyDrawer.dart';
 import 'widget/SingleChildScrollViewDemoPage.dart';
 import 'widget/ListViewDemoPage1.dart';
 import 'widget/ListViewDemoPage2.dart';
+import 'widget/GridViewDemoPage.dart';
+import 'widget/CustomScrollViewDemoPage.dart';
 
 
 void main() => runApp(MyApp());
@@ -124,6 +126,8 @@ const routerName = [
   "SingleChildScrollView Demo",
   "ListViewDemoPage1 Demo",
   "ListViewDemoPage2 Demo",
+  "GridViewDemoPage Demo",
+  "CustomScrollViewDemoPage Demo",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -153,5 +157,11 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/ListViewDemoPage2" : (context){
     return new ListViewDemoPage2();
+  },
+  "widget/GridViewDemoPage" : (context){
+    return new GridViewDemoPage();
+  },
+  "widget/CustomScrollViewDemoPage" : (context){
+    return new CustomScrollViewDemoPage();
   },
 };
