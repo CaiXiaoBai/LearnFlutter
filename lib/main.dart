@@ -14,6 +14,7 @@ import 'widget/CustomScrollViewDemoPage.dart';
 import 'widget/ScrollControllerDemoPage.dart';
 import 'widget/ScrollNotificationDemoPage.dart';
 import 'widget/WillPopScopeDemoPage.dart';
+import 'widget/InheritedDemoPage.dart';
 
 
 void main() => runApp(MyApp());
@@ -134,6 +135,7 @@ const routerName = [
   "ScrollControllerDemoPage Demo",
   "ScrollNotificationDemoPage Demo",
   "WillPopScopeDemoPage Demo",
+  "InheriteDemoPage Demo",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -178,5 +180,8 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/WillPopScopeDemoPage" : (context){
     return new WillPopScopeDemoPage();
+  },
+  "widget/InheriteDemoPage" : (context){
+    return new InheriteDemoPage();
   },
 };
