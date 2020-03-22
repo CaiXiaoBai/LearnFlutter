@@ -15,6 +15,8 @@ import 'widget/ScrollControllerDemoPage.dart';
 import 'widget/ScrollNotificationDemoPage.dart';
 import 'widget/WillPopScopeDemoPage.dart';
 import 'widget/InheritedDemoPage.dart';
+import 'widget/ThemeDemoPage.dart';
+import 'widget/FutureDemoPage.dart';
 
 
 void main() => runApp(MyApp());
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.light,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       routes: routers,
@@ -46,7 +48,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin  {
   int selectedIndex = 1;
   TabController tabController;
-  List tabs = ["新闻","历史","图片"];
+  List tabs = ["Widgets","tab1","tab2"];
 
   @override
   void initState() {
@@ -80,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       body: TabBarView(
         controller: tabController,
         children: tabs.map((e){
-          if(e == "新闻"){
+          if(e == "Widgets"){
             return Center(
               child: new ListView.builder(
                 itemBuilder: (context, index) {
@@ -136,6 +138,8 @@ const routerName = [
   "ScrollNotificationDemoPage Demo",
   "WillPopScopeDemoPage Demo",
   "InheriteDemoPage Demo",
+  "ThemeDemoPage Demo",
+  "FutureDemoPage Demo",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -183,5 +187,11 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/InheriteDemoPage" : (context){
     return new InheriteDemoPage();
+  },
+  "widget/ThemeDemoPage" : (context){
+    return new ThemeDemoPage();
+  },
+  "widget/FutureDemoPage" : (context){
+    return new FutureDemoPage();
   },
 };
