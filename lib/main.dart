@@ -17,6 +17,7 @@ import 'widget/WillPopScopeDemoPage.dart';
 import 'widget/InheritedDemoPage.dart';
 import 'widget/ThemeDemoPage.dart';
 import 'widget/FutureDemoPage.dart';
+import 'widget/GestureDetectorDemoPage.dart';
 
 
 void main() => runApp(MyApp());
@@ -140,6 +141,7 @@ const routerName = [
   "InheriteDemoPage Demo",
   "ThemeDemoPage Demo",
   "FutureDemoPage Demo",
+  "GestureDetectorDemoPage Demo",
 ];
 
 Map<String, WidgetBuilder> routers = {
@@ -193,5 +195,8 @@ Map<String, WidgetBuilder> routers = {
   },
   "widget/FutureDemoPage" : (context){
     return new FutureDemoPage();
+  },
+  "widget/GestureDetectorDemoPage" : (context){
+    return new GestureDetectorDemoPage();
   },
 };
